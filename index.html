@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <title>校内　案内</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBFzNFrqUTEgvsnlDByKwfAfsfE6JWgU&v=beta&callback=initRoute"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBFzNFrqUTEgvsnlDByKwfAfsfE6JWgU&v=beta&callback=weatherRouteMap"></script>
   <script src="./scripts/script.js"></script>
   <script src="./scripts/RouteMap.js"></script>
   <script src="./scripts/roomCheck.js"></script>
@@ -15,18 +15,20 @@
 </head>
 
 <body ng-controller="MyController">
+  <select id="selectWeather">
+    <option value="sun">晴れ</option>
+    <option value="rain">雨</option>
+    <option value="cloud">曇り</option>
+  </select>
   <img ng-src="{{weather}}">
-  <!--
-     <script>ajaxRequest(35.1834122,137.1108532)</script>
-      <script>weatherIcon()</script> 
-    -->
+    <script>weatherIcon()</script> 
 
   <main>
     <td>
       <tr>
         <!-- 目的地検索 -->
           <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
-          <input type="button" ng-click="onclick()" id=searchbutton value="検索" onclick="check(searchbox.value)">
+          <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
 
           <p><output id="guest"></output></p>
         </tr>
@@ -97,7 +99,7 @@
             <option value="28">正門</option>
         </select>
 
-        <input type="button" value="決定" onclick="initRoute()"/>
+        <input type="button" ng-click="onclick()" value="決定" onclick="weatherRouteMap()"/>
       </tr>
     </td>
     <div class="container"></div>
