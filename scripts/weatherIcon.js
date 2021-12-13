@@ -9,8 +9,8 @@ function weatherIcon() {
           params: {
             callback: 'JSON_CALLBACK',  // 1コールバック関数の名前
             id: $scope.city,            // コード
-            lat: 35.1834122,
-            lon: 137.1108532,
+            lat: 35.18356981077938,
+            lon: 137.11296568164514,
             APPID: 'c79b8ff1d56f9c7d9a242382f719ceb4'  // キー
           }
         }
@@ -19,7 +19,8 @@ function weatherIcon() {
       .success(function(data) 
         {
           console.log(data.weather[0].icon);
-          $scope.weather =  'http://openweathermap.org/img/wn/' + data.weather[0].icon +'.png';
+          //$scope.weather =  'http://openweathermap.org/img/wn/' + data.weather[0].icon +'.png';
+          $scope.weather =  './images/' + data.weather[0].icon +'.svg';
         }
       )
       .error(function(err) {
