@@ -4,7 +4,7 @@ function weatherIcon() {
   angular.module('myApp', [])
   .controller('MyController', ['$scope', '$http', function($scope, $http) {
     $scope.onclick = function(w) {
-      $http.jsonp('http://api.openweathermap.org/data/2.5/weather',
+      $http.jsonp('https://api.openweathermap.org/data/2.5/weather',
         {
           params: {
             callback: 'JSON_CALLBACK',  // 1コールバック関数の名前
