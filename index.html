@@ -13,26 +13,26 @@
 </head>
 
 <body ng-controller="MyController">
-  <select id="selectWeather">
-    <option value="sun">晴れ</option>
-    <option value="rain">雨</option>
-    <option value="cloud">曇り</option>
-  </select>
-  <img ng-src="{{weather}}" width="50px" height="50px">
-    <script>weatherIcon()</script> 
-
   <main>
+    <img ng-src="{{weather}}" width="50px" height="50px">
+    <script>weatherIcon()</script> 
+    <select id="selectWeather">
+      <option value="sun">晴れ</option>
+      <option value="rain">雨</option>
+      <option value="cloud">曇り</option>
+    </select>
     <td>
       <tr>
         <!-- 目的地検索 -->
           <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
           <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
-
           <p><output id="guest"></output></p>
-        </tr>
-        <tr>
+      </tr>
+    </td>
+    <td>
+      <tr>
         <!-- 出発点 -->
-        <select id="startpoint">
+        <select id="startpoint" class="point">
             <option value="0">現在地</option>
             <option value="1">1号館</option>
             <option value="2">1号館別館</option>
@@ -65,7 +65,7 @@
         </select>
         から
         <!-- 目的地 -->
-        <select id="goalpoint">
+        <select id="goalpoint" class="point">
             <option value="0">目的地</option>
             <option value="1">1号館</option>
             <option value="2">1号館別館</option>
@@ -96,16 +96,18 @@
             <option value="27">鉀徳館</option>
             <option value="28">正門</option>
         </select>
-
         <input type="button" ng-click="onclick()" value="決定" onclick="weatherRouteMap()"/>
       </tr>
     </td>
-    <div class="container"></div>
-
-    <tr>
-      <p>距離：<span id="lenge"></span></p>
-      <p>所要時間：<span id="time"></span></p>
-    </tr>
+    <td class="results">
+      <div class="container"></div>
+      <tr>
+        距離：<span id="lenge"></span>
+      </tr>
+      <tr>
+        所要時間：<span id="time"></span>
+      </tr>
+    </td>
   </main>
 
   <div id="map"></div>
