@@ -21,6 +21,24 @@ function weatherIcon() {
           console.log(data.weather[0].icon);
           //$scope.weather =  'http://openweathermap.org/img/wn/' + data.weather[0].icon +'.png';
           $scope.weather =  './images/' + data.weather[0].icon +'.svg';
+          switch (data.weather[0].icon) {
+            case "01d":
+            case "01n":
+              selectWeather.value = "sun";
+              break;
+            case "03d":
+            case "03n":
+              selectWeather.value = "cloud";
+              break;
+            case "09d":
+            case "09n":
+            case "10d":
+            case "10n":
+              selectWeather.value = "rain";
+              break;
+            default:
+              break;
+          }
         }
       )
       .error(function(err) {
