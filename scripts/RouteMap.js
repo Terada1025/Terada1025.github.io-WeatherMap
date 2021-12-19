@@ -50,6 +50,43 @@ function weatherTime(duration) {
   return time;
 }
 
+// 現在地取得処理
+function geolocation() {
+  // Geolocation APIに対応している
+  if (navigator.geolocation) {
+    // 現在地を取得
+    navigator.geolocation.getCurrentPosition(
+      // 取得成功した場合
+      function(position) {
+        // 緯度・経度を変数に格納
+        point[0] = [position.coords.latitude, position.coords.longitude];
+        //var mapLatLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      },
+      // 取得失敗した場合
+      function(error) {
+        // エラーメッセージを表示
+        switch(error.code) {
+          case 1: // PERMISSION_DENIED
+            alert("位置情報の利用が許可されていません");
+            break;
+          case 2: // POSITION_UNAVAILABLE
+            alert("現在位置が取得できませんでした");
+            break;
+          case 3: // TIMEOUT
+            alert("タイムアウトになりました");
+            break;
+          default:
+            alert("その他のエラー(エラーコード:"+error.code+")");
+            break;
+        }
+      }
+    );
+  // Geolocation APIに対応していない
+  } else {
+    alert("この端末では位置情報が取得できません");
+  }
+}
+
 //地点指定関数
 function pointSet(buildingS, buildingG) {
   /* 開始地点の座標を指定*/
@@ -63,10 +100,8 @@ function initLenge() {  //距離検索関数
   // DistanceMatrix サービスを生成
   var distanceMatrixService = new google.maps.DistanceMatrixService();
 
-  // 出発点
-  var origns = [startP];
-  // 到着点
-  var destinations = [goalP];
+  var origns = [startP]; //出発点
+  var destinations = [goalP]; //到着点
 
   // DistanceMatrix の実行
   distanceMatrixService.getDistanceMatrix({
@@ -136,6 +171,7 @@ function initRoute() {  //ルート検索関数
 }
 
 function weatherRouteMap() {  //ルート表示メイン関数
+  geolocation();
   const buildingS = startpoint.selectedIndex;
   const buildingG = goalpoint.selectedIndex;  
   pointSet(buildingS, buildingG);  //スタート地、目的地設定関数
