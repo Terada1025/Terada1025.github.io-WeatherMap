@@ -15,21 +15,9 @@
 
 <body ng-controller="MyController">
   <main>
-    <img ng-src="{{weather}}" width="50px" height="50px">
-    <script>weatherIcon()</script> 
-    <select id="selectWeather">
-      <option value="sun">晴れ</option>
-      <option value="rain">雨</option>
-      <option value="cloud">曇り</option>
-    </select>
-    <td>
-      <tr>
-        <!-- 目的地検索 -->
-          <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
-          <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
-          <p><output id="guest"></output></p>
-      </tr>
-    </td>
+    <img width="50px" height="50px" ng-src="{{weather}}">
+    <script>weatherIcon()</script>
+
     <td>
       <tr>
         <!-- 出発点 -->
@@ -109,6 +97,42 @@
         所要時間：<span id="time"></span>
       </tr>
     </td>
+    <!-- openEx -->
+    <div class="openEx">
+      <label for="pushlabelEx">▶︎ 便利機能</label>
+      <input id="pushlabelEx" class="inputcss" type="checkbox"/>
+      <span class="exshow">
+
+        <!-- openselectweather -->
+        <div class="openselectweather">
+          <label for="pushimg">▶︎ 天気を変更</label>
+          <input id="pushimg" class="inputcss" type="checkbox"/>
+          <span class="selectweathershow">
+            <select id="selectWeather">
+              <option value="sun">晴れ</option>
+              <option value="rain">雨</option>
+              <option value="cloud">曇り</option>
+            </select>
+          </span>
+        </div>
+        <!-- openselectweather -->
+
+        <!-- openclassroom -->
+        <div class="openclassroom">
+          <label for="pushlabel">▶︎ 教室検索</label>
+          <input id="pushlabel" class="inputcss" type="checkbox"/>
+          <span class="classroomshow">
+              <!-- 目的地検索 -->
+              <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
+              <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
+              <p><output id="guest"></output></p>
+          </span>
+        </div>
+        <!-- openclassroom -->
+
+      </span>
+    </div>
+    <!-- openEx -->
   </main>
 
   <div id="map"></div>

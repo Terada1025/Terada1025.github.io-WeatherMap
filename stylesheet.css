@@ -29,3 +29,57 @@ input {
 .results {
   font-size: 80px;
 }
+
+
+#pushlabelEx {
+  display: none; /* チェックボックスを隠す */
+}
+.openEx .exshow {
+  height: 0;
+  opacity: 0; /* 折り畳んだ時に中を透明にする */
+  display: none;/* 閉じた時に中身の要素をなくす */
+}
+.inputcss:checked + .exshow {
+  height: auto;
+  opacity: 1; /*クリックやタップで中を表示させる*/
+  display: block;/* 折り畳みになるように */
+}
+.openEx {
+  font-size: 20px;
+}
+
+
+#pushimg {
+  display: none; /* チェックボックスを隠す */
+}
+.openselectweather .selectweathershow {
+  height: 0;
+  opacity: 0; /* 折り畳んだ時に中を透明にする */
+  display: none;/* 閉じた時に中身の要素をなくす */
+}
+.inputcss:checked + .selectweathershow {
+  height: auto;
+  opacity: 1; /*クリックやタップで中を表示させる*/
+  display: block;/* 折り畳みになるように */
+}
+.openselectweather {
+  font-size: 20px;
+}
+
+
+#pushlabel {
+  display: none; /* チェックボックスを隠す */
+}
+.openclassroom .classroomshow {
+  height: 0;
+  opacity: 0; /* 折り畳んだ時に中を透明にする */
+  display: none;/* 閉じた時に中身の要素をなくす */
+}
+.inputcss:checked + .classroomshow {
+  height: auto;
+  opacity: 1; /*クリックやタップで中を表示させる*/
+  display: block;/* 折り畳みになるように */
+}
+.openclassroom {
+  font-size: 20px;
+}
