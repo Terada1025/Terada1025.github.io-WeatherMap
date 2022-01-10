@@ -1,140 +1,141 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<head>
-  <meta charset="UTF-8" />
-  <title>校内　案内</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBFzNFrqUTEgvsnlDByKwfAfsfE6JWgU&v=beta&callback=weatherRouteMap"></script>
-  <script src="./scripts/RouteMap.js"></script>
-  <script src="./scripts/roomCheck.js"></script>
-  <script src="./scripts/weatherIcon.js"></script>
-  <link rel="stylesheet" href="./stylesheet.css">
-  <script>geolocation()</script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <title>校内　案内</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBaBFzNFrqUTEgvsnlDByKwfAfsfE6JWgU&v=beta&callback=weatherRouteMap"></script>
+    <script src="./scripts/RouteMap.js"></script>
+    <script src="./scripts/roomCheck.js"></script>
+    <script src="./scripts/weatherIcon.js"></script>
+    <link rel="stylesheet" href="./stylesheet.css">
+    <script>geolocation()</script>
+  </head>
 
-<body ng-controller="MyController">
-  <main>
-    <img width="50px" height="50px" ng-src="{{weather}}">
-    <script>weatherIcon()</script>
+  <body ng-controller="MyController">
+    <main>
+      <img ng-src="{{weather}}">
+      <script>weatherIcon()</script>
 
-    <td>
-      <tr>
-        <!-- 出発点 -->
-        <select id="startpoint" class="point">
-            <option value="0">現在地</option>
-            <option value="1">1号館</option>
-            <option value="2">1号館別館</option>
-            <option value="3">新2号館</option>
-            <option value="4">2号館実験棟</option>
-            <option value="5">3号館</option>
-            <option value="6">4号館</option>
-            <option value="7">4号館別館</option>
-            <option value="8">5号館</option>
-            <option value="9">6号館</option>
-            <option value="10">7号館</option>
-            <option value="11">8号館</option>
-            <option value="12">9号館</option>
-            <option value="13">10号館</option>
-            <option value="14">11号館</option>
-            <option value="15">12号館</option>
-            <option value="16">13号館</option>
-            <option value="17">本部棟</option>
-            <option value="18">第2本部棟</option>
-            <option value="19">情報教育センター</option>
-            <option value="20">図書館</option>
-            <option value="21">計算センター</option>
-            <option value="22">総合技術研究所</option>
-            <option value="23">セントラルテラス</option>
-            <option value="24">愛和会館</option>
-            <option value="25">AITプラザ</option>
-            <option value="26">駐車場ゲート</option>
-            <option value="27">鉀徳館</option>
-            <option value="28">正門</option>
-        </select>
-        から
-        <!-- 目的地 -->
-        <select id="goalpoint" class="point">
-            <option value="0">目的地</option>
-            <option value="1">1号館</option>
-            <option value="2">1号館別館</option>
-            <option value="3">新2号館</option>
-            <option value="4">2号館実験棟</option>
-            <option value="5">3号館</option>
-            <option value="6">4号館</option>
-            <option value="7">4号館別館</option>
-            <option value="8">5号館</option>
-            <option value="9">6号館</option>
-            <option value="10">7号館</option>
-            <option value="11">8号館</option>
-            <option value="12">9号館</option>
-            <option value="13">10号館</option>
-            <option value="14">11号館</option>
-            <option value="15">12号館</option>
-            <option value="16">13号館</option>
-            <option value="17">本部棟</option>
-            <option value="18">第2本部棟</option>
-            <option value="19">情報教育センター</option>
-            <option value="20">図書館</option>
-            <option value="21">計算センター</option>
-            <option value="22">総合技術研究所</option>
-            <option value="23">セントラルテラス</option>
-            <option value="24">愛和会館</option>
-            <option value="25">AITプラザ</option>
-            <option value="26">駐車場ゲート</option>
-            <option value="27">鉀徳館</option>
-            <option value="28">正門</option>
-        </select>
-        <input type="button" ng-click="onclick()" value="決定" onclick="weatherRouteMap()"/>
-      </tr>
-    </td>
-    <td class="results">
-      <div class="container"></div>
-      <tr>
-        距離：<span id="lenge"></span>
-      </tr>
-      <tr>
-        所要時間：<span id="time"></span>
-      </tr>
-    </td>
-    <!-- openEx -->
-    <div class="openEx">
-      <label for="pushlabelEx">▶︎ 便利機能</label>
-      <input id="pushlabelEx" class="inputcss" type="checkbox"/>
-      <span class="exshow">
+      <td>
+        <tr>
+          <!-- 出発点 -->
+          <select id="startpoint" class="point">
+              <option value="0">現在地</option>
+              <option value="1">1号館</option>
+              <option value="2">1号館別館</option>
+              <option value="3">新2号館</option>
+              <option value="4">2号館実験棟</option>
+              <option value="5">3号館</option>
+              <option value="6">4号館</option>
+              <option value="7">4号館別館</option>
+              <option value="8">5号館</option>
+              <option value="9">6号館</option>
+              <option value="10">7号館</option>
+              <option value="11">8号館</option>
+              <option value="12">9号館</option>
+              <option value="13">10号館</option>
+              <option value="14">11号館</option>
+              <option value="15">12号館</option>
+              <option value="16">13号館</option>
+              <option value="17">本部棟</option>
+              <option value="18">第2本部棟</option>
+              <option value="19">情報教育センター</option>
+              <option value="20">図書館</option>
+              <option value="21">計算センター</option>
+              <option value="22">総合技術研究所</option>
+              <option value="23">セントラルテラス</option>
+              <option value="24">愛和会館</option>
+              <option value="25">AITプラザ</option>
+              <option value="26">駐車場ゲート</option>
+              <option value="27">鉀徳館</option>
+              <option value="28">正門</option>
+          </select>
+          から
+          <!-- 目的地 -->
+          <select id="goalpoint" class="point">
+              <option value="0">目的地</option>
+              <option value="1">1号館</option>
+              <option value="2">1号館別館</option>
+              <option value="3">新2号館</option>
+              <option value="4">2号館実験棟</option>
+              <option value="5">3号館</option>
+              <option value="6">4号館</option>
+              <option value="7">4号館別館</option>
+              <option value="8">5号館</option>
+              <option value="9">6号館</option>
+              <option value="10">7号館</option>
+              <option value="11">8号館</option>
+              <option value="12">9号館</option>
+              <option value="13">10号館</option>
+              <option value="14">11号館</option>
+              <option value="15">12号館</option>
+              <option value="16">13号館</option>
+              <option value="17">本部棟</option>
+              <option value="18">第2本部棟</option>
+              <option value="19">情報教育センター</option>
+              <option value="20">図書館</option>
+              <option value="21">計算センター</option>
+              <option value="22">総合技術研究所</option>
+              <option value="23">セントラルテラス</option>
+              <option value="24">愛和会館</option>
+              <option value="25">AITプラザ</option>
+              <option value="26">駐車場ゲート</option>
+              <option value="27">鉀徳館</option>
+              <option value="28">正門</option>
+          </select>
+          <input type="button" ng-click="onclick()" value="決定" onclick="weatherRouteMap()"/>
+        </tr>
+      </td>
+      <td class="results">
+        <div class="container"></div>
+        <tr>
+          距離：<span id="lenge"></span>
+        </tr>
+        <tr>
+          所要時間：<span id="time"></span>
+        </tr>
+      </td>
+      <!-- openEx -->
+      <div class="openEx">
+        <label for="pushlabelEx">▶︎ 便利機能</label>
+        <input id="pushlabelEx" class="inputcss" type="checkbox"/>
+        <span class="exshow">
 
-        <!-- openselectweather -->
-        <div class="openselectweather">
-          <label for="pushimg">▶︎ 天気を変更</label>
-          <input id="pushimg" class="inputcss" type="checkbox"/>
-          <span class="selectweathershow">
-            <select id="selectWeather">
-              <option value="sun">晴れ</option>
-              <option value="rain">雨</option>
-              <option value="cloud">曇り</option>
-            </select>
-          </span>
-        </div>
-        <!-- openselectweather -->
+          <!-- openselectweather -->
+          <div class="openselectweather">
+            <label for="pushimg">▶︎ 天気を変更</label>
+            <input id="pushimg" class="inputcss" type="checkbox"/>
+            <span class="selectweathershow">
+              <select id="selectWeather">
+                <option value="sun">晴れ</option>
+                <option value="rain">雨</option>
+                <option value="cloud">曇り</option>
+              </select>
+            </span>
+          </div>
+          <!-- openselectweather -->
 
-        <!-- openclassroom -->
-        <div class="openclassroom">
-          <label for="pushlabel">▶︎ 教室検索</label>
-          <input id="pushlabel" class="inputcss" type="checkbox"/>
-          <span class="classroomshow">
-              <!-- 目的地検索 -->
-              <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
-              <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
-              <p><output id="guest"></output></p>
-          </span>
-        </div>
-        <!-- openclassroom -->
+          <!-- openclassroom -->
+          <div class="openclassroom">
+            <label for="pushlabel">▶︎ 教室検索</label>
+            <input id="pushlabel" class="inputcss" type="checkbox"/>
+            <span class="classroomshow">
+                <!-- 目的地検索 -->
+                <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
+                <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
+                <p><output id="guest"></output></p>
+            </span>
+          </div>
+          <!-- openclassroom -->
 
-      </span>
-    </div>
-    <!-- openEx -->
-  </main>
+        </span>
+      </div>
+      <!-- openEx -->
+    </main>
 
-  <div id="map"></div>
-</body>
+    <div id="map"></div>
+  </body>
 </html>
