@@ -12,16 +12,27 @@
     font-size: 20px;
     margin: 30px 5% 0px 5%;
   }
+  a {
+    font-size: 30px;
+    margin: 0px;
+  }
+  p {
+    font-size: 20px;
+    margin: 0px;
+  }
   img {
     width: 80px; 
     height: 80px; 
   }
   select {
     width: 100%;
-    font-size: 120%;
+    font-size: 150%;
+  }
+  .TIME {
+    font-size: 40px;
   }
   #map {
-    height:70%;
+    height:40%;
   }
 }
 
@@ -43,25 +54,29 @@
     margin: 30px 20% 0px 20%;
     background-color: white;
   }
+  a {
+    font-size: 30px;
+    margin: 0px;
+  }
   p {
     font-size: 30px;
     margin: 0px;
   }
   img {
-    width: 50px; 
-    height: 50px; 
+    width: 100px; 
+    height: 100px; 
   }
   select {
-    font-size: 120%;
+    font-size: 150%;
   }
   input {
     font-size: 20px;
   }
   .point {
-    width: 150px;
+    width: 100%;
   }
-  .results {
-    font-size: 80px;
+  .TIME {
+    font-size: 40px;
   }
 }
 

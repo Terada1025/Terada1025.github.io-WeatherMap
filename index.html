@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="myApp" lang="ja">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
   <head>
@@ -19,26 +19,18 @@
     <main>
       <img ng-src="{{weather}}">
       <script>weatherIcon()</script>
+      <input type="button" ng-click="onclick()" value="天気を検索" />
       
       <td>
         <tr>
           <!-- 出発点 -->
-          <select id="startpoint" class="point"></select>
-          から
+          <select id="startpoint" class="point" onchange="weatherRouteMap()"></select>
+          <a>から</a>
           <!-- 目的地 -->
-          <select id="goalpoint" class="point"></select>
-          <input type="button" ng-click="onclick()" value="決定" onclick="weatherRouteMap()"/>
+          <select id="goalpoint" class="point" onchange="weatherRouteMap()"></select>
         </tr>
       </td>
-      <td class="results">
-        <div class="container"></div>
-        <tr>
-          距離：<span id="lenge"></span>
-        </tr>
-        <tr>
-          所要時間：<span id="time"></span>
-        </tr>
-      </td>
+      
       <!-- openEx -->
       <div class="openEx">
         <label for="pushlabelEx">▶︎ 便利機能</label>
@@ -75,6 +67,18 @@
         </span>
       </div>
       <!-- openEx -->
+
+      <td>
+        <div class="container"></div>
+        <!--
+        <tr>
+          距離：<span id="lenge"></span>
+        </tr>
+        -->
+        <tr>
+          <p class="TIME">所要時間：<span id="time"></span></p>
+        </tr>
+      </td>
     </main>
 
     <div id="map"></div>

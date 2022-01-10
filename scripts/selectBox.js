@@ -30,15 +30,17 @@ var selectPoint = [
     {cd:"28", lable:"正門"}
 ];
 
-//スタートポイントの生成
+//selectBoxの生成
 window.onload=function(){
+    //スタートポイントの生成
     for(var i=0;i<selectPoint.length;i++){
         let op = document.createElement("option");
         op.value = selectPoint[i].cd;
         op.text = selectPoint[i].lable;
         document.getElementById("startpoint").appendChild(op);
     }
-    for(var i=0;i<selectPoint.length;i++){
+    //ゴールポイントの生成
+    for(var i=1;i<selectPoint.length;i++){
         let op = document.createElement("option");
         op.value = selectPoint[i].cd;
         op.text = selectPoint[i].lable;
