@@ -30,6 +30,7 @@ let point = [　//各館座標
 ];
 var startP;
 var goalP;
+var map;
 
 //天気で移動時間を変化させる関数
 function weatherTime(duration) {
@@ -95,6 +96,8 @@ function pointSet(buildingS, buildingG) {
   goalP = new google.maps.LatLng(point[buildingG][0],point[buildingG][1]);
 }
 
+//マーカーを設置 
+
 //距離計算関数
 function initLenge() {  //距離検索関数
   // DistanceMatrix サービスを生成
@@ -139,7 +142,7 @@ function initLenge() {  //距離検索関数
 }
 
 function initRoute() {  //ルート検索関数
-  var map = new google.maps.Map(document.getElementById("map"), {
+  map = new google.maps.Map(document.getElementById("map"), {
     zoom: 17,
     center: new google.maps.LatLng(point[0][0],point[0][1]),
     mapTypeId: "roadmap"

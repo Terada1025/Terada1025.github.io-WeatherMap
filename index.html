@@ -16,11 +16,9 @@
   </head>
 
   <body ng-controller="MyController">
+    <h1>WeatherMap</h1>
+    <h4>天気によって移動時間が変化</h3>
     <main>
-      <img ng-src="{{weather}}">
-      <script>weatherIcon()</script>
-      <input type="button" ng-click="onclick()" value="天気を検索" />
-      
       <td>
         <tr>
           <!-- 出発点 -->
@@ -30,43 +28,6 @@
           <select id="goalpoint" class="point" onchange="weatherRouteMap()"></select>
         </tr>
       </td>
-      
-      <!-- openEx -->
-      <div class="openEx">
-        <label for="pushlabelEx">▶︎ 便利機能</label>
-        <input id="pushlabelEx" class="inputcss" type="checkbox"/>
-        <span class="exshow">
-
-          <!-- openselectweather -->
-          <div class="openselectweather">
-            <label for="pushimg">▶︎ 天気を変更</label>
-            <input id="pushimg" class="inputcss" type="checkbox"/>
-            <span class="selectweathershow">
-              <select id="selectWeather">
-                <option value="sun">晴れ</option>
-                <option value="rain">雨</option>
-                <option value="cloud">曇り</option>
-              </select>
-            </span>
-          </div>
-          <!-- openselectweather -->
-
-          <!-- openclassroom -->
-          <div class="openclassroom">
-            <label for="pushlabel">▶︎ 教室検索</label>
-            <input id="pushlabel" class="inputcss" type="checkbox"/>
-            <span class="classroomshow">
-                <!-- 目的地検索 -->
-                <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
-                <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
-                <p><output id="guest"></output></p>
-            </span>
-          </div>
-          <!-- openclassroom -->
-
-        </span>
-      </div>
-      <!-- openEx -->
 
       <td>
         <div class="container"></div>
@@ -81,6 +42,46 @@
       </td>
     </main>
 
+    <img ng-src="{{weather}}">
+    <script>weatherIcon()</script>
+    <input type="button" ng-click="onclick()" value="天気を検索" />
     <div id="map"></div>
+
+    <!-- openEx -->
+    <div class="openEx">
+      <label for="pushlabelEx">▶︎ 便利機能</label>
+      <input id="pushlabelEx" class="inputcss" type="checkbox"/>
+      <span class="exshow">
+
+        <!-- openselectweather -->
+        <div class="openselectweather">
+          <label for="pushimg">▶︎ 天気を変更</label>
+          <input id="pushimg" class="inputcss" type="checkbox"/>
+          <span class="selectweathershow">
+            <select id="selectWeather">
+              <option value="sun">晴れ</option>
+              <option value="rain">雨</option>
+              <option value="cloud">曇り</option>
+            </select>
+          </span>
+        </div>
+        <!-- openselectweather -->
+
+        <!-- openclassroom -->
+        <div class="openclassroom">
+          <label for="pushlabel">▶︎ 教室検索</label>
+          <input id="pushlabel" class="inputcss" type="checkbox"/>
+          <span class="classroomshow">
+              <!-- 目的地検索 -->
+              <input type="text" name="number" id="searchbox"　value="" placeholder="教室を入力"></label>
+              <input type="button" id=searchbutton value="検索" onclick="check(searchbox.value)">
+              <p><output id="guest"></output></p>
+          </span>
+        </div>
+        <!-- openclassroom -->
+
+      </span>
+    </div>
+    <!-- openEx -->
   </body>
 </html>
