@@ -31,6 +31,7 @@ let point = [　//各館座標
 var startP;
 var goalP;
 var map;
+var infoWindow;
 
 //天気で移動時間を変化させる関数
 function weatherTime(duration) {
@@ -96,7 +97,19 @@ function pointSet(buildingS, buildingG) {
   goalP = new google.maps.LatLng(point[buildingG][0],point[buildingG][1]);
 }
 
-//マーカーを設置 
+//マーカーを設置
+function createMaker(p) {
+  marker = new google.maps.Marker({ // マーカーの追加
+    position: p, // マーカーを立てる位置を指定
+    map: map // マーカーを立てる地図を指定
+  });
+  infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+    content: '<div class="sample">TAM 大阪</div>' // 吹き出しに表示する内容
+  });
+  marker.addListener('click', function() { // マーカーをクリックしたとき
+    infoWindow.open(map, marker); // 吹き出しの表示
+  });
+} 
 
 //距離計算関数
 function initLenge() {  //距離検索関数
@@ -111,12 +124,6 @@ function initLenge() {  //距離検索関数
     origins: origns, // 出発地点
     destinations: destinations, // 到着地点
     travelMode: google.maps.TravelMode.WALKING, // 車モード or 徒歩モード
-    /*
-    drivingOptions: { // 車モードの時のみ有効
-      departureTime: new Date('2017/5/5 10:00:00'), // 2017年5月5日
-      trafficModel: google.maps.TrafficModel.BEST_GUESS // 最適な検索
-    }
-    */
   }, function(response, status) {
     if (status == google.maps.DistanceMatrixStatus.OK) {
 
@@ -180,4 +187,5 @@ function weatherRouteMap() {  //ルート表示メイン関数
   pointSet(buildingS, buildingG);  //スタート地、目的地設定関数
   initRoute();  //ルート検索関数呼び出し
   initLenge();  //距離検索関数呼び出し
+  createMaker(goalP);
 }

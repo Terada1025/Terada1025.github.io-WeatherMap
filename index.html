@@ -16,14 +16,16 @@
   </head>
 
   <body ng-controller="MyController">
-    <h1>WeatherMap</h1>
-    <h4>天気によって移動時間が変化</h3>
+    <header>
+      <h1>WeatherMap</h1>
+      <h4>天気によって移動時間が変化</h3>
+    </header>
     <main>
       <td>
         <tr>
           <!-- 出発点 -->
           <select id="startpoint" class="point" onchange="weatherRouteMap()"></select>
-          <a>から</a>
+          <a id="yazirushi">↓</a>
           <!-- 目的地 -->
           <select id="goalpoint" class="point" onchange="weatherRouteMap()"></select>
         </tr>
@@ -42,6 +44,7 @@
       </td>
     </main>
 
+
     <img ng-src="{{weather}}">
     <script>weatherIcon()</script>
     <input type="button" ng-click="onclick()" value="天気を検索" />
@@ -55,7 +58,7 @@
 
         <!-- openselectweather -->
         <div class="openselectweather">
-          <label for="pushimg">▶︎ 天気を変更</label>
+          <label for="pushimg">▶︎ 天気変更</label>
           <input id="pushimg" class="inputcss" type="checkbox"/>
           <span class="selectweathershow">
             <select id="selectWeather">

@@ -11,12 +11,18 @@
     padding:0;
     font-size: 20px;
     margin: 30px 5% 0px 5%;
+    text-align: center;
+  }
+  header {
+    margin: 20px 0px;    
   }
   h1 {
     margin: 0px;
+    text-align: center;
   }
   h4 {
     margin: 0px;
+    text-align: center;
   }
   a {
     font-size: 30px;
@@ -31,16 +37,29 @@
     height: 80px; 
   }
   select {
-    width: 100%;
+    margin: 5px 0px;
+    width: 90%;
     font-size: 150%;
+    position: relative;
+    text-align: center;
   }
   .TIME {
     font-size: 40px;
+  }
+  #yazirushi {
+    width: 5%;
+    margin: 0px;
+    position: absolute;
+    top: 170px;
   }
   #map {
     position: relative;
     height:40%;
     background-color: grey;
+  }
+  label {
+    margin: 5px;
+    font-size: 30px;
   }
 }
 
