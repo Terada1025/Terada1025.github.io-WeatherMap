@@ -31,7 +31,7 @@ var selectPoint = [
 ];
 
 //selectBoxの生成
-window.onload=function(){
+function createSelectBox() {
     //スタートポイントの生成
     for(var i=0;i<selectPoint.length;i++){
         let op = document.createElement("option");

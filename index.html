@@ -13,6 +13,12 @@
     <script src="./scripts/weatherIcon.js"></script>
     <link rel="stylesheet" href="./stylesheet.css">
     <script>geolocation()</script>
+    <script>
+      window.onload = function() {
+        createSelectBox();
+        weatherIcon();
+      }
+    </script>
   </head>
 
   <body ng-controller="MyController">
@@ -47,7 +53,6 @@
 
     <img ng-src="{{weather}}">
     <script>weatherIcon()</script>
-    <input type="button" ng-click="onclick()" value="天気を検索" />
     <div id="map"></div>
 
     <!-- openEx -->
