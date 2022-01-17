@@ -33,6 +33,21 @@ var goalP;
 var map;
 var infoWindow;
 
+//時間、マップを表示
+function visible() {
+  const timeVi = document.getElementById("timeVisi");
+  const mapVi = document.getElementById("map");
+
+	if(timeVi.style.display=="none"){
+		// blockで表示
+		timeVi.style.display ="block";
+	}
+  if(mapVi.style.display=="none"){
+		// blockで表示
+		mapVi.style.display ="block";
+	}
+}
+
 //天気で移動時間を変化させる関数
 function weatherTime(duration) {
   var time;
@@ -181,6 +196,7 @@ function initRoute() {  //ルート検索関数
 }
 
 function weatherRouteMap() {  //ルート表示メイン関数
+  visible();
   geolocation();
   const buildingS = startpoint.selectedIndex;
   const buildingG = goalpoint.selectedIndex + 1;  

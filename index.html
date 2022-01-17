@@ -17,6 +17,9 @@
       window.onload = function() {
         createSelectBox();
         weatherIcon();
+        //初期表示は非表示
+        document.getElementById("timeVisi").style.display ="none";
+        document.getElementById("map").style.display ="none";
       }
     </script>
   </head>
@@ -45,7 +48,7 @@
         </tr>
         -->
         <tr>
-          <p class="TIME">所要時間：<span id="time"></span></p>
+          <p id="timeVisi" class="TIME">所要時間：<span id="time"></span></p>
         </tr>
       </td>
     </main>
